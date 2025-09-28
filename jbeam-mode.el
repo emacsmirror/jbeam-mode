@@ -1,0 +1,58 @@
+;;; jbeam-mode.el --- Major mode for JBeam files -*- lexical-binding: t; -*-
+;;
+;; Author: August Johansson
+;; URL: https://github.com/webdevred/jbeam-mode
+;; Version: 0.1
+;; Keywords: languages
+;; Package-Requires: ((emacs "24.3"))
+;;
+;; This file is NOT part of GNU Emacs.
+;;
+;;; Commentary:
+;;
+;; This package provides a major mode `jbeam-mode` for editing
+;; JBeam configuration files used in BeamNG.drive.
+;;
+;; Features:
+;; - Syntax highlighting
+;; - Comment handling
+;;
+;; To enable automatically:
+;;   (require 'jbeam-mode)
+;;   ;; or via auto-mode-alist
+;;   (add-to-list 'auto-mode-alist '("\\.jbeam\\'" . jbeam-mode))
+;;; Code:
+
+(defvar jbeam-mode-syntax-table
+  (let ((st (make-syntax-table)))
+    (modify-syntax-entry ?/ ". 124b" st)
+    (modify-syntax-entry ?\n "> b" st)
+    (modify-syntax-entry ?\" "\"" st)
+    (modify-syntax-entry ?: "." st)
+    st)
+  "Syntax table for `jbeam-mode'.")
+
+(defvar jbeam-font-lock-keywords
+  `(
+    ("\"\\([A-Za-z0-9_]+\\)\"\\s-*:" 1 font-lock-keyword-face)
+
+    ("\\b[0-9]+\\(\\.[0-9]+\\)?\\b" . font-lock-constant-face)
+
+    ("\\b\\(true\\|false\\)\\b" . font-lock-constant-face)
+
+    ("[{}\\[\\]]" . font-lock-builtin-face)
+
+    ("//.*$" . font-lock-comment-face)
+    )
+  "Highlighting for `jbeam-mode'.")
+
+;;;###autoload
+(define-derived-mode jbeam-mode prog-mode "JBeam"
+  "Major mode for editing JBeam files."
+  :syntax-table jbeam-mode-syntax-table
+  (setq-local font-lock-defaults '(jbeam-font-lock-keywords)))
+
+(add-to-list 'auto-mode-alist '("\\.jbeam\\'" . jbeam-mode))
+
+(provide 'jbeam-mode)
+;;; jbeam-mode.el ends here

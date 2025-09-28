@@ -1,0 +1,54 @@
+* jbeam-mode
+
+A major mode for editing BeamNG.drive JBeam configuration files in Emacs.
+
+** Features
+
+- Syntax highlighting for:
+  * Keys and values
+  * Numbers
+  * Booleans (true, false)
+  * Braces and brackets
+  * Comments (// ...)
+- Automatic recognition of *.jbeam files
+
+** Installation
+
+From MELPA (recommended):
+
+#+BEGIN_SRC
+  M-x package-install RET jbeam-mode RET
+#+END_SRC
+
+Then Emacs will automatically enable jbeam-mode for .jbeam files.
+
+Manual installation:
+
+1. Clone this repository.
+2. Add it to your load-path in Emacs:
+
+#+BEGIN_SRC elisp
+(add-to-list 'load-path "/path/to/jbeam-mode")
+(require 'jbeam-mode)
+#+END_SRC
+
+** Usage
+
+Simply open a .jbeam file and jbeam-mode will activate automatically.
+
+You can also enable it manually:
+
+#+BEGIN_SRC
+  M-x jbeam-mode
+#+END_SRC
+
+Contributing
+
+Issues and pull requests are welcome.
+If you have suggestions for new features (e.g. indentation rules, completion),
+feel free to open a discussion.
+
+** License
+
+This project is licensed under the Apache 2.
+See the LICENSE file for details.
