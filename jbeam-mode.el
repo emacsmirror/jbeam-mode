@@ -65,7 +65,12 @@
   :syntax-table jbeam-mode-syntax-table
   (setq-local font-lock-defaults '(jbeam-font-lock-keywords)))
 
+;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.jbeam\\'" . jbeam-mode))
+
+
+(with-eval-after-load 'markdown-mode
+  (add-to-list 'markdown-code-lang-modes '("jbeam" . jbeam-mode)))
 
 (provide 'jbeam-mode)
 ;;; jbeam-mode.el ends here
