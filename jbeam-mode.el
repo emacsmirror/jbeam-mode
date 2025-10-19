@@ -4,7 +4,7 @@
 ;; URL: https://github.com/webdevred/jbeam-mode
 ;; Version: 0.1
 ;; Keywords: languages
-;; Package-Requires: ((emacs "24.3"))
+;; Package-Requires: ((emacs "24.4"))
 ;;
 ;; This file is NOT part of GNU Emacs.
 ;;
