@@ -40,6 +40,7 @@
 (defvar jbeam-mode-syntax-table
   (let ((st (make-syntax-table)))
     (modify-syntax-entry ?/ ". 124b" st)
+    (modify-syntax-entry ?* ". 23" st)
     (modify-syntax-entry ?\n "> b" st)
     (modify-syntax-entry ?\" "\"" st)
     (modify-syntax-entry ?: "." st)
